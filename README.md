@@ -230,4 +230,4 @@ prints its usage.
 
 ## Licence
 
-No licence has been chosen yet, so all rights are reserved until one is added.
+MIT. See [LICENSE](LICENSE).

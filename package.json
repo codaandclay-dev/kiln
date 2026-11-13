@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Fire a marketing site in the kiln: Claude and Codex audit every page, argue to consensus, grade it, and write an HTML report.",
   "type": "module",
+  "license": "MIT",
   "private": true,
   "engines": { "node": ">=20" },
   "scripts": {
