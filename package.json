@@ -1,0 +1,17 @@
+{
+  "name": "kiln",
+  "version": "0.1.0",
+  "description": "Fire a marketing site in the kiln: Claude and Codex audit every page, argue to consensus, grade it, and write an HTML report.",
+  "type": "module",
+  "private": true,
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "setup": "npm install && npx playwright install chromium webkit firefox",
+    "capture": "node scripts/capture.mjs",
+    "report": "node scripts/report.mjs"
+  },
+  "dependencies": {
+    "axe-core": "^4.10.0",
+    "playwright": "^1.49.0"
+  }
+}

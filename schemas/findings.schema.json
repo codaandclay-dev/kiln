@@ -1,0 +1,99 @@
+{
+  "type": "object",
+  "properties": {
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "string",
+            "description": "Page id from the manifest, e.g. \"p01\". Use \"site\" for an issue that is about the whole site rather than one page."
+          },
+          "also_on": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Other page ids in this batch showing the same issue. Empty if none."
+          },
+          "viewport": {
+            "type": "string",
+            "enum": [
+              "desktop",
+              "mobile",
+              "both"
+            ]
+          },
+          "section": {
+            "type": "string",
+            "description": "Where on the page, e.g. \"§2 hero\" or \"footer\". Empty string if not tied to a section."
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "visual",
+              "messaging",
+              "conversion",
+              "modernness",
+              "trust",
+              "mobile",
+              "motion",
+              "consistency",
+              "performance",
+              "accessibility",
+              "seo"
+            ]
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "critical",
+              "major",
+              "minor",
+              "polish"
+            ]
+          },
+          "title": {
+            "type": "string",
+            "description": "The problem in one plain sentence, under 90 characters."
+          },
+          "detail": {
+            "type": "string",
+            "description": "What is wrong and why it matters to a visitor or to the business. 1-3 sentences."
+          },
+          "evidence": {
+            "type": "string",
+            "description": "Exactly what you saw and where: image file plus what is in it, or the measured fact from the digest."
+          },
+          "fix": {
+            "type": "string",
+            "description": "The specific change to make. Concrete, not \"improve X\"."
+          },
+          "shot": {
+            "type": "string",
+            "description": "Path of the one image that best shows the problem, copied exactly from the digest. Empty string if none."
+          }
+        },
+        "required": [
+          "page",
+          "also_on",
+          "viewport",
+          "section",
+          "category",
+          "severity",
+          "title",
+          "detail",
+          "evidence",
+          "fix",
+          "shot"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "findings"
+  ],
+  "additionalProperties": false
+}

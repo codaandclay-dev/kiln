@@ -1,0 +1,85 @@
+{
+  "type": "object",
+  "properties": {
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "enum": [
+              "visual",
+              "messaging",
+              "conversion",
+              "modernness",
+              "trust",
+              "mobile",
+              "motion",
+              "consistency",
+              "performance",
+              "accessibility",
+              "seo"
+            ]
+          },
+          "score": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "rationale": {
+            "type": "string",
+            "description": "2-3 sentences citing ledger ids and what the site does well or badly in this category."
+          }
+        },
+        "required": [
+          "key",
+          "score",
+          "rationale"
+        ],
+        "additionalProperties": false
+      },
+      "description": "Exactly one entry per category key."
+    },
+    "verdict": {
+      "type": "string",
+      "description": "Two or three sentences a site owner could read aloud: what this site is like and what holds it back."
+    },
+    "strengths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "3-6 things the site genuinely does well, each one sentence."
+    },
+    "top_fixes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Ledger id"
+          },
+          "why": {
+            "type": "string",
+            "description": "Why this is among the highest-impact fixes, one sentence."
+          }
+        },
+        "required": [
+          "id",
+          "why"
+        ],
+        "additionalProperties": false
+      },
+      "description": "The 5-8 ledger items to fix first, most valuable first."
+    }
+  },
+  "required": [
+    "categories",
+    "verdict",
+    "strengths",
+    "top_fixes"
+  ],
+  "additionalProperties": false
+}

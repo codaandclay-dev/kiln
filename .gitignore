@@ -1,0 +1,14 @@
+# dependencies
+node_modules/
+
+# kiln output (screenshots and reports of audited sites; never commit these)
+kiln-runs/
+report.html
+
+# local and editor files
+.DS_Store
+*.log
+.env
+.env.*
+.vscode/
+.idea/

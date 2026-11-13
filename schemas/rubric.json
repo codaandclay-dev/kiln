@@ -1,0 +1,18 @@
+{
+  "categories": [
+    { "key": "visual", "label": "Visual design and polish", "weight": 20 },
+    { "key": "messaging", "label": "Messaging and first-screen clarity", "weight": 15 },
+    { "key": "conversion", "label": "Conversion path", "weight": 15 },
+    { "key": "modernness", "label": "Modernness", "weight": 10 },
+    { "key": "trust", "label": "Trust and professionalism", "weight": 10 },
+    { "key": "mobile", "label": "Mobile experience", "weight": 10 },
+    { "key": "motion", "label": "Motion and interaction quality", "weight": 5 },
+    { "key": "consistency", "label": "Consistency across pages", "weight": 5 },
+    { "key": "performance", "label": "Performance", "weight": 5 },
+    { "key": "accessibility", "label": "Accessibility", "weight": 3 },
+    { "key": "seo", "label": "Search and share basics", "weight": 2 }
+  ],
+  "severities": ["critical", "major", "minor", "polish"],
+  "letters": [[97, "A+"], [93, "A"], [90, "A-"], [87, "B+"], [83, "B"], [80, "B-"], [77, "C+"], [73, "C"], [70, "C-"], [67, "D+"], [63, "D"], [60, "D-"], [0, "F"]],
+  "reconcileGap": 10
+}

@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "what_is_it": {
+      "type": "string",
+      "description": "What this company or product is, in one sentence, from the first screen only."
+    },
+    "who_is_it_for": {
+      "type": "string",
+      "description": "Who it is for, from the first screen only. Say \"unclear\" if it does not say."
+    },
+    "what_to_do_next": {
+      "type": "string",
+      "description": "The one action the page wants the visitor to take, and the button that asks for it. Say \"unclear\" if there is none."
+    },
+    "clarity": {
+      "type": "string",
+      "enum": [
+        "clear",
+        "partly clear",
+        "unclear"
+      ]
+    },
+    "mobile_differs": {
+      "type": "string",
+      "description": "Anything the mobile first screen loses or hides compared with desktop. Empty string if nothing."
+    },
+    "notes": {
+      "type": "string",
+      "description": "One or two sentences on the first impression: does it look credible and current?"
+    }
+  },
+  "required": [
+    "what_is_it",
+    "who_is_it_for",
+    "what_to_do_next",
+    "clarity",
+    "mobile_differs",
+    "notes"
+  ],
+  "additionalProperties": false
+}

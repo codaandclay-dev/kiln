@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "properties": {
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "enum": [
+              "visual",
+              "messaging",
+              "conversion",
+              "modernness",
+              "trust",
+              "mobile",
+              "motion",
+              "consistency",
+              "performance",
+              "accessibility",
+              "seo"
+            ]
+          },
+          "score": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "rationale": {
+            "type": "string",
+            "description": "2-3 sentences citing ledger ids and what the site does well or badly in this category."
+          }
+        },
+        "required": [
+          "key",
+          "score",
+          "rationale"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "categories"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,69 @@
+{
+  "type": "object",
+  "properties": {
+    "responses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Ledger item id, e.g. \"K-014\"."
+          },
+          "stance": {
+            "type": "string",
+            "enum": [
+              "agree",
+              "amend",
+              "dispute",
+              "concede",
+              "rebut",
+              "maintain"
+            ]
+          },
+          "reasoning": {
+            "type": "string",
+            "description": "Why, citing what you checked. 1-3 sentences."
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "critical",
+              "major",
+              "minor",
+              "polish",
+              ""
+            ],
+            "description": "Proposed severity. Empty string to leave unchanged."
+          },
+          "title": {
+            "type": "string",
+            "description": "Proposed replacement title. Empty string to leave unchanged."
+          },
+          "detail": {
+            "type": "string",
+            "description": "Proposed replacement detail. Empty string to leave unchanged."
+          },
+          "fix": {
+            "type": "string",
+            "description": "Proposed replacement fix. Empty string to leave unchanged."
+          }
+        },
+        "required": [
+          "id",
+          "stance",
+          "reasoning",
+          "severity",
+          "title",
+          "detail",
+          "fix"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "responses"
+  ],
+  "additionalProperties": false
+}
