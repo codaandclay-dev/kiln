@@ -1,18 +1,49 @@
 {
-  "name": "kiln",
+  "name": "@codaandclay/kiln",
   "version": "0.1.0",
   "description": "Fire a marketing site in the kiln: Claude and Codex audit every page, argue to consensus, grade it, and write an HTML report.",
   "type": "module",
   "license": "MIT",
-  "private": true,
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
-    "setup": "npm install && npx playwright install chromium webkit firefox",
+    "setup": "npm install && node bin/kiln.mjs setup",
     "capture": "node scripts/capture.mjs",
     "report": "node scripts/report.mjs"
   },
   "dependencies": {
     "axe-core": "^4.10.0",
     "playwright": "^1.49.0"
+  },
+  "bin": {
+    "kiln": "bin/kiln.mjs"
+  },
+  "files": [
+    "bin",
+    "commands",
+    "prompts",
+    "schemas",
+    "scripts",
+    "install.sh"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codaandclay-dev/kiln.git"
+  },
+  "homepage": "https://github.com/codaandclay-dev/kiln#readme",
+  "bugs": {
+    "url": "https://github.com/codaandclay-dev/kiln/issues"
+  },
+  "keywords": [
+    "claude-code",
+    "codex",
+    "website-audit",
+    "design-review",
+    "marketing",
+    "playwright"
+  ],
+  "publishConfig": {
+    "access": "public"
   }
 }

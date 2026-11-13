@@ -68,14 +68,27 @@ One file, `report.html`, that opens in any browser:
 ## Install
 
 ```bash
+npm install -g @codaandclay/kiln
+kiln setup
+```
+
+`kiln setup` installs the `/kiln` command into Claude Code
+(`~/.claude/commands/kiln.md`), downloads the Playwright browsers (a few
+minutes the first time) and checks that Codex is logged in. Restart Claude Code
+afterwards.
+
+To upgrade, run the same two commands again. To uninstall, delete
+`~/.claude/commands/kiln.md` and run `npm uninstall -g @codaandclay/kiln`.
+
+### From a clone
+
+```bash
 git clone https://github.com/codaandclay-dev/kiln.git
 cd kiln && ./install.sh
 ```
 
-The script links this folder to `~/.claude/kiln`, links the command to
-`~/.claude/commands/kiln.md`, installs dependencies and downloads the
-Playwright browsers (a few minutes the first time). Re-run it if you move the
-folder. To uninstall, delete those two links.
+This links the folder into `~/.claude` instead of copying, so edits to the
+prompts and scripts take effect immediately. Re-run it if you move the folder.
 
 ## Use
 
@@ -195,16 +208,17 @@ Kiln behaves like an unusually thorough visitor, and a site owner will notice it
 
 - **"Codex: NOT ready"** — install the Codex CLI and run `codex login`. Kiln
   stops without both reviewers.
-- **Browsers missing** — run `npm run setup` in this folder.
-- **`/kiln` not found** — re-run `./install.sh`, then restart Claude Code.
+- **Browsers missing** — run `kiln setup`.
+- **`/kiln` not found** — re-run `kiln setup` (or `./install.sh` for a clone), then restart Claude Code.
 - **A page failed or looks wrong** — check `warnings` in `manifest.json` and
   "Capture gaps" in that page's `digest.md`; kiln records what it could not do.
 - **A Codex batch failed** — re-run just that part:
-  `node ~/.claude/kiln/scripts/codex-turn.mjs audit --run <run folder> --only <batch numbers>`
+  `kiln codex audit --run <run folder> --only <batch numbers>`
 
 ## Layout
 
 ```
+bin/kiln.mjs              the kiln CLI: setup, and a front door to the scripts
 commands/kiln.md          the /kiln command: orchestrates the phases
 prompts/                  rubric and instructions shared by both reviewers
 schemas/                  JSON shapes for findings, debate turns and grades; rubric weights
@@ -225,8 +239,8 @@ scripts/lib/
   compose.mjs             image sheets
 ```
 
-Each script can be run on its own; `node scripts/<name>.mjs` with no arguments
-prints its usage.
+Each stage can be run on its own: `kiln capture`, `kiln codex`, `kiln ledger`
+and `kiln report`. Run `kiln` with no arguments for the list.
 
 ## Licence
 

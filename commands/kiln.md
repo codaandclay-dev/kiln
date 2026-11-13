@@ -11,8 +11,8 @@ You are running **kiln**: a probe that captures every page of a marketing
 website, has you and Codex audit it independently, makes the two of you argue
 out every disagreement, grades the site, and writes one HTML report.
 
-Kiln's scripts, prompts and schemas live in `$HOME/.claude/kiln` (called `KILN`
-below). The scripts do the bookkeeping and enforce the rules; your job is the
+Kiln's scripts, prompts and schemas live in its install folder (called `KILN`
+below; Phase 0 finds it — use that absolute path wherever `$KILN` or `KILN` appears). The scripts do the bookkeeping and enforce the rules; your job is the
 judgement: auditing, merging, debating and grading. Work through the phases in
 order. Tell the user in one short line when each phase starts and what it
 found; do not narrate individual tool calls.
@@ -45,7 +45,7 @@ found; do not narrate individual tool calls.
   through to the capture script unchanged.
 - Check the install:
   ```bash
-  KILN="$HOME/.claude/kiln"; ls "$KILN/scripts/capture.mjs" && node --version && codex login status
+  KILN="$(kiln root 2>/dev/null || echo "$HOME/.claude/kiln")"; echo "KILN=$KILN"; ls "$KILN/scripts/capture.mjs" && node --version && codex login status
   [ -d "$KILN/node_modules/playwright" ] || (cd "$KILN" && npm run setup)
   ```
   The first-ever run downloads browsers, which takes a few minutes.

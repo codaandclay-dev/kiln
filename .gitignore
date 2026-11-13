@@ -12,3 +12,4 @@ report.html
 .env.*
 .vscode/
 .idea/
+.npmrc
